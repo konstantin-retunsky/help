@@ -26,3 +26,68 @@
 		ul - маркированный список, который имеет вложенные li
 		ol - пронумерованный список, который имеет вложенные li
 		dl - список определений, где dt (термин) - вложенный тег, а dd вложен в dt, dd - определение термина.
+Первым атрибутом в теге идет class для легкого чтения кода, остальные атрибуты расставляются в любом порядке, но тоже 
+единообразно для одинаковых элементов
+
+Для логических атрибутов (checked, disabled, required) значение не указывается, а сами атрибуты 
+указываются последними и в единообразной последовательности во всем документе
+
+<!-- Хорошо: размеры картинке заданы -->
+<div class="logo-area">
+  <img src="logo.png" alt="" width="300" height="150">
+</div>
+<!-- Плохо: размеры картинке заданы в px -->
+<div class="logo-area">
+  <img src="logo.png" alt="" width="300px" height="150px">
+</div>
+
+Объявление логически связанных свойств группируются в следующем порядке:
+	1. Позиционирование
+	2. Блочная модель
+	3. Типографика
+	4. Оформление
+	5. Анимация
+	6. Разное
+.decl50ration-order {
+  /* Позиционирование */
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+
+  /* Блочная модель */
+  display: block;
+  float: right;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  padding: 10px;
+
+  /* Типографика */
+  font: normal 13px/1.5 "Arial", sans-serif;
+  font-style: normal;
+  font-size: 13px;
+  line-height: 1.5;
+  font-family: "Arial", sans-serif;
+  text-align: center;
+  color: #333333;
+
+  /* Оформление */
+  background-color: #f5f5f5;
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+  opacity: 1;
+
+  /* Анимация */
+  transition: color 1s;
+
+  /* Разное */
+  will-change: auto;
+}
+
+/* Хорошо: указан альтернативный веб-безопасный шрифт и его тип семейства */
+body {
+  font-family: "Helvetica", "Arial", sans-serif;
+}
