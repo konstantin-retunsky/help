@@ -117,3 +117,11 @@ list-style - знстиль маркера списка
 *, *::before, *::after {
 	box-sizing: border-box;
 }
+
+Алгоритм по созданию стилей
+1. Типографика
+		color,font, text-transform, text-decoration, font-size, line-height, text-align	
+	 Оформление
+	 background-color, background-image, background-position, background-repeat
+	 border, border-color, list-style, vertical-align, border-radius, box-shadow
+	
