@@ -1,0 +1,25 @@
+git config --global user.name,email etc - настройки
+git --list - показать инфу конфига
+git diff - показывает локальные изменения 
+git show "name commit | id" - показывает изменения коммита
+git checkout name file - удаляет измененения, или восстанавливает
+git checkout id-commit name-file - изменить файл на файл из другого коммита
+git checkout id-commit - переключиться на коммит
+git checkout name-branch - переключиться на другую ветку
+git checkout -b name-commit id-commit - изменяет название коммита (при изменении внутри, создается новая ветка)
+git reset HEAD name-file - удалить из добавления в коммит
+git log -$ ($-цифра) - показать н-ое количество коммитов
+git commit --amed -m "commit" - исправляет сообщение последнего коммита
+git commit - ammed --no-edit - обновить коммит
+git rm --cached path-file - удалить файл из коммита (можно восстановить в репозитории)
+
+Слияние веток
+git merge name-branch -m "messenge" - объединяет ветки, слияние происходит в находящуюся ветку
+
+git checkout -b name-branch - создание ветки из текущего коммита
+
+Генирация ключа, использовать нужно публичный, не приватный
+ssh-keygen -t rs (type key) -b 4096 (length key in bits) -C "konstantin.retunsky@gmail.com" - генирация ключа
+
+git clone git@github.com:username/reps.git - скачать репозиторий с гитхаба
+

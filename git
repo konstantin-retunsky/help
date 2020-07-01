@@ -109,4 +109,4 @@ curl -u 'USER' https://api.github.com/user/repos -d '{"name":"REPO"}' - созд
 git remote add origin git@github.com:konstantin-retunsky/help.git - подключение к репозиторию, когда подключен ключ ssh, где help.git - название дерриктории, .git - обязательная приставка 
 После чего можно спокойно пушить
 
-Пуш осуществляется следующим образом - git push -u origin master
+Жуш осуществляется следующим образом - git push -u origin master
