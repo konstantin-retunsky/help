@@ -16,3 +16,42 @@ Using your text editor, create a file named gulpfile.js in your project root wit
 	}
 
 	exports.default = defaultTask
+
+#Имейте ввиду, что подключение пользовательских скриптов, в которых могут быть использованы какие-либо JS 
+#библиотеки, нужно размещать после подключения библиотек в потоке, так как в процессе конкатенации файлы
+#сливаются именно в той последовательности, в которой перечисляются пути до файлов в src, а подключение API
+#библиотеки должно предшествовать использованию. 
+
+#Самый популярный плагин Gulp для конкатенации файлов gulp-concat.
+	npm install --save-dev gulp-concat
+
+#Сжатие js файлов gulp-uglify-es
+	npm install --save-dev gulp-uglify-es
+
+#jQuery
+	npm i jquery --save-dev
+
+#gulp-sass
+	npm install node-sass gulp-sass --save-dev
+
+#autoprefixer
+	npm install --save-dev gulp-autoprefixer
+
+#gulp-clean-css
+	npm install gulp-clean-css --save-dev
+
+#gulp-imagemin - сжатие, и оптимизация 
+	$ npm install --save-dev gulp-imagemin
+
+#gulp-newer проверить, было ли сжато или изменено изображение ранее
+	npm install gulp-newer --save-dev
+
+#del	Delete files and directories using globs
+ npm install del	
+
+#pug
+	npm install pug	-g
+	npm install pug-cli -g
+
+#gulp-pug-linter
+ npm install gulp-pug-linter --save-dev

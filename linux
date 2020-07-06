@@ -41,3 +41,5 @@ ps -fHu bogeyman - показ процессов, где
 -H - отображать дерево процессов linux;
 -u, (U) - выбрать процессы пользователя.
 
+
+https://github.com/nodesource/distributions/blob/master/README.md - установка последней версии nodejs

@@ -45,8 +45,6 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-
-
 set tabstop=2
 set shiftwidth=2
 set smarttab
@@ -65,14 +63,21 @@ set ruler
 
 set t_Co=256
 set termencoding=utf-8
-set guifont=Monaco:h18
-colorscheme OceanicNext
+
+"colorscheme desert
+"set guifont=Monaco:h18
+
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
 
 inoremap jj <ESC>
 inoremap оо <ESC>
 
+set clipboard=unnamedplus "нужно так же установить пакет vim-gtk3
+
 execute pathogen#infect()
-syntax on
 filetype plugin indent on
 
 set keymap=russian-jcukenwin
@@ -80,3 +85,20 @@ set iminsert=0
 set imsearch=0
 highlight lCursor guifg=NONE guibg=Cyan
 set langmap=ёйцукенгшщзхъфывапролджэячсмитьбюЁЙЦУКЕHГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ;`qwertyuiop[]asdfghjkl\\;'zxcvbnm\\,.~QWERTYUIOP{}ASDFGHJKL:\\"ZXCVBNM<>
+
+"dracula
+"packadd! dracula, monokain, OceanicNext
+"
+packadd! dracula
+syntax enable
+colorscheme dracula
+
+
+autocmd vimenter * NERDTree "открытие NERDTree автоматом
+map <C-g> :NERDTreeToggle<CR>
+
+
+"syntax js
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_ngdoc = 1
+let g:javascript_plugin_flow = 1
