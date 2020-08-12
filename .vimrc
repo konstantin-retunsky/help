@@ -29,9 +29,9 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
 Plugin 'flazz/vim-colorschemes'
 
-
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
+
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
@@ -56,16 +56,12 @@ set autoindent
 set nobackup
 set nowritebackup
 set noswapfile
-set encoding=utf-8
-set fileencodings=utf8,cp1251
+
 
 set ruler
 
 set t_Co=256
 set termencoding=utf-8
-
-"colorscheme desert
-"set guifont=Monaco:h18
 
 noremap <Up> <Nop>
 noremap <Down> <Nop>
@@ -94,7 +90,6 @@ syntax enable
 colorscheme dracula
 
 
-autocmd vimenter * NERDTree "открытие NERDTree автоматом
 map <C-g> :NERDTreeToggle<CR>
 
 
@@ -102,3 +97,7 @@ map <C-g> :NERDTreeToggle<CR>
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
 let g:javascript_plugin_flow = 1
+
+" Для иконок
+set encoding=utf8
+set fileencodings=utf8,cp1251
