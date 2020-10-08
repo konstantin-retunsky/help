@@ -1,0 +1,157 @@
+Преобразование типов:
+	Number(), Boolean(), String() = > console.log(Boolean(0));
+
+Функция Number.isNan - возвращает true в том случае, если переданный ей аргумент имеет значение Nan.
+											 Функция Number возвращает значение Nan, если предать ей строку, которая не представляет собой корректную запись числа.
+
+Если имя параметра только одно, можно опустить круглые скобки, в которые заключен список параметров.
+Если тело функции представляет собой единственное выражение, а не блок фигурных скобок, то функция
+будет возвращать это выражение. Таким образом, следующие два определения square делают одно и то же:
+	const square1 = (x) => { return x * x; };
+	const square2 = x => x * x;
+
+function max(...numbers) {
+	let result = -Infinity; //Infinity - максимальное большое или маленькое число в js
+	for (let number of numbers) {
+		if (number > result) {
+			result = number;
+		}
+	}
+	return result;
+}
+let test = [100, 2, 3, 4, 5, 7, 999];
+console.log(max(1, ...test, 500));
+console.log(Math.max(1, ...test, 500));
+
+function test([n00, n01, n10, n11]) {
+	return (n11 * n00 - n10 * n01 /
+		Math.sqrt((n10 + n11) * (n00 + n01) *
+							(n01 + n11) * (n00 + n10)));
+}
+
+let test1 = [1,2,3,4,5,6,7];
+console.log(test(test1));
+
+function noisy(f) {
+	return (...args) => {
+		console.log("вызов для", args);
+		let result = f(...args);
+		console.log("вызов для", args, " возвращает", result);
+			return result;
+	};
+}
+function noisy(f) {
+	return (...args) => {
+		return f(...args);
+	};
+}
+noisy(Math.max)(3,2,1,55,33,44,80);
+вызов для Array(7) [ 3, 2, 1, 55, 33, 44, 80 ]
+вызов для Array(7) [ 3, 2, 1, 55, 33, 44, 80 ]  возвращает 80
+
+Массивы
+	push - добавление в конец массива
+	pup - удаление с конца массива
+	shift - удаление с начала массива
+	unshift - добавление в начало массива
+	indexOf - индекс первого найденного элемента с начала массива
+	lastIndexOf - индекс первого найденного элемента с конца массива
+	includes - проверяет наличие элемента в массиве
+	slice(arg1,arg2) - если указывать 2 аргумента, то будет вырезан массив с arg1 по arg2 индекс, если один, то с arg1 до конца
+	concat - склеивает массивы
+	foreach в js => for (let element of array)
+
+Строки
+	trim - удаляет пробельные символы в начале и конце строки
+	padStart - добавляет перед строкой необходимое количество символа "test".padStart(3, "0") => 000test
+	padEnd - аналогично padStart, только в конец строки
+	repeat - дублирует строку "test".repeat(2) => testtest
+
+JSON
+	JSON.stringify - преобразовывает объект в строку JSON
+	JSON.parse - преобразовывает JSON строку в объект
+
+function repeat(n, action) {
+	for (let i = 0; i < n; i++) {
+		action(i);
+	}
+}
+repeat(3, console.log);
+
+let labels = [];
+repeat(5, i =>{
+	labels.push(`Блок ${i + 1}`);
+});
+console.log(labels);
+
+Методы в js
+1.
+		let robbit = {};
+		robbit.speak = function(line) {
+			console.log(`Кролоик говорит: '${line}'`);
+		};
+		robbit.speak("Я живой");
+2.
+		function speak(line) {
+			console.log(`${this.type} кролик говорит: '${line}'`);
+		}
+		let whiteRabbit = {type: "Белый", speak};
+		let hungryRobbit = {type: "Голодный", speak};
+
+		whiteRabbit.speak("Ах вы ушки-усики мои!" + "Как я попаздываю!");
+		hungryRobbit.speak("Я бы съел сейчас морковку.");	
+
+Привязку this можно представить как допольнительный параметр, передаваемый другим способом. Если вы хотите передать его явно,
+то можете использовать метод функции call, который принимает значение this в качестве первого аргумента и обрабатывает
+остальные аргументы как обычные параметры.
+		speak.call(hungryRobbit, "Я объелся!");
+
+		function normalize() {
+			console.log(this.coords.map(n => n / this.length));
+		}
+		normalize.call({coords: [0, 2, 3], length: 5});
+
+Объекты
+	let protoRabbit = {
+		speak(line) {
+			console.log(`${this.type} кролик говорит: '${line}'`);
+		}
+	};
+	let killerRabbit = Object.create(protoRabbit);
+	killerRabbit.type = "Боевой";
+	killerRabbit.speak("Пиф-Пиф!");
+
+Классы
+	до 2015 года
+		function Rabbit(type) {
+			this.type = type;
+		}
+		Rabbit.prototype.speak = function(line) {
+			console.log(`The${this.type} кролик говорит: '${line}'`);
+		};
+		let weirdRabbit = new Rabbit("Странный");
+	после 2015 года
+		class Rabbit {
+			constructor(type) {
+				this.type = type;
+			}
+			speak(line) {
+				console.log(`${this.type} кролик говорит: '${line}'`);
+			}
+		}
+
+		let killerRabbit = new Rabbit("Убийственный");
+		let blackRabbit = new Rabbit("Черный");
+
+
+
+
+
+let sixMonthsAgo = new Date();
+  sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
+sixMonthsAgo = sixMonthsAgo.toLocaleString('ru', options);
+
+function convertToDate(strDate) {
+  strDate = strDate.split(".");
+  return new Date(strDate[2], parseInt(strDate[1]) - 1, strDate[0]);
+}

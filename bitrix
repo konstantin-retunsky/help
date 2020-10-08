@@ -1,0 +1,36 @@
+запуск бп для определенных элементов, на примере универсального списка
+https://zen.yandex.ru/media/id/5d358086f0d4f400adf3aa61/zapusk-biznesprocessa-cherez-rest-5d5a616197b5d400ae846f3e
+Откуда взять коды сущностей?
+
+Например можно получить из метода bizproc.workflow.template.list (параметры MODULE_ID и ENTITY).
+
+Ну или воспользоваться краткой справкой, в которой я буду использовать сущности с номером 777 (чтобы было понятно):
+
+    ['crm', 'CCrmDocumentLead', 'LEAD_777']
+
+    ['crm', 'CCrmDocumentCompany', 'COMPANY_777']
+
+    ['crm', 'CCrmDocumentContact', 'CONTACT_777']
+
+    ['crm', 'CCrmDocumentDeal', 'DEAL_777']
+
+    ['lists', 'BizprocDocument', '777']
+
+    ['disk', 'Bitrix\Disk\BizProcDocument', '777']
+
+    ['tasks', 'Bitrix\Tasks\Integration\Bizproc\Document\Task', '777']
+
+ var params = {
+		TEMPLATE_ID: 45,
+		DOCUMENT_ID: ['lists', 'BizprocDocument', 270],
+		PARAMETERS: "test"
+ };
+
+ BX24.callMethod(
+		'bizproc.workflow.start',
+		params,
+		function(result)
+		{
+			console.log(result);
+		}
+ );
